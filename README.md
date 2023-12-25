@@ -19,18 +19,20 @@
   ```
   $ npm i
   ```
- - To start developement server
+ - To start developement server (PORT: 3000)
 
   ```
   $ npm run dev
   ```
   
-   - To compile typescript code and then start server
+   - To compile typescript code and then start server (PORT: 3000)
 
   ```
   $ npm run build
   $ npm start
   ```
+
+
   
    ## Run unit tests
 
@@ -61,3 +63,76 @@
   | POST | / | Create a new product |
   | PUT | /:id/ | Update details of a specific product by ID |
   | DELETE | /:id | Delete product by ID |
+
+
+##  Sample Request-Response:
+
+### GET `/api/products/3`
+
+```
+// response
+{
+    "id": 3,
+    "productName": "Tablet",
+    "price": 30000
+}
+```
+
+### POST `/api/products/`
+
+```
+// request body
+{
+    "id": 16,
+    "productName": "Hadron Collider",
+    "price": 99999
+}
+```
+
+```
+// response 
+{
+    "id": 16,
+    "productName": "Hadron Collider",
+    "price": 99999
+}
+```
+
+### PUT `/api/products/16`
+
+```
+// request body (In previous response body we can see that product id 16 was Hadron Collider)
+{
+    "productName": "Particle Accelerator"  // Hadron Collider => Particle Accelerator
+}
+```
+
+```
+// response 
+{
+    "id": 16,
+    "productName": "Particle Aceelerator",
+    "price": 99999
+}
+```
+
+### DELETE `/api/products/15`
+
+```
+// response (object of deleted product is returned)
+{
+    "id": 15,
+    "productName": "Smartwatch",
+    "price": 12000
+}
+```
+
+
+
+
+
+
+
+
+
+
